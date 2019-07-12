@@ -5,6 +5,30 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 
+;; Shrink/Enlarge buffers
+(global-set-key (kbd "<C-s-M-up>") 'shrink-window)
+(global-set-key (kbd "<C-s-M-down>") 'enlarge-window)
+(global-set-key (kbd "<C-s-M-left>") 'shrink-window-horizontally)
+(global-set-key (kbd "<C-s-M-right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "<C-up>") 'windmove-up)
+(global-set-key (kbd "<C-down>") 'windmove-down)
+(global-set-key (kbd "<C-left>") 'windmove-left)
+(global-set-key (kbd "<C-right>") 'windmove-right)
+
+;; set Emacs default shell
+(setq explicit-shell-file-name "/bin/bash")
+
+;; Run emacs shell at startup
+(term explicit-shell-file-name)
+(split-window-vertically)
+(switch-to-buffer "*scratch*")
+(windmove-down)
+(fit-window-to-buffer)
+(windmove-up)
+
+;; Run emacs shell
+(define-key global-map (kbd "C-M-g") (lambda () (interactive) (term explicit-shell-file-name)))
+
 ;; Toggle inline images in org-mode
 (global-set-key (kbd "C-M-u") 'org-toggle-inline-images)
 (setq org-startup-with-inline-images t)
@@ -72,5 +96,4 @@
  '(package-selected-packages
    (quote
     ())))
-(custom-set-faces
- )
+(custom-set-faces)
