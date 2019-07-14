@@ -10,16 +10,20 @@
 (global-set-key (kbd "<C-s-M-down>") 'enlarge-window)
 (global-set-key (kbd "<C-s-M-left>") 'shrink-window-horizontally)
 (global-set-key (kbd "<C-s-M-right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "<C-up>") 'windmove-up)
-(global-set-key (kbd "<C-down>") 'windmove-down)
-(global-set-key (kbd "<C-left>") 'windmove-left)
-(global-set-key (kbd "<C-right>") 'windmove-right)
+(global-set-key (kbd "<M-s-up>") 'windmove-up)
+(global-set-key (kbd "<M-s-down>") 'windmove-down)
+(global-set-key (kbd "<M-s-left>") 'windmove-left)
+(global-set-key (kbd "<M-s-right>") 'windmove-right)
 
-;; set Emacs default shell
-(setq explicit-shell-file-name "/bin/bash")
+;; Disable window dialogs 
+(setq use-dialog-box nil)
+
+;; Y or N exit
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Run emacs shell at startup
-(term explicit-shell-file-name)
+(setq eshell-banner-message "")
+(eshell)
 (split-window-vertically)
 (switch-to-buffer "*scratch*")
 (windmove-down)
@@ -27,7 +31,7 @@
 (windmove-up)
 
 ;; Run emacs shell
-(define-key global-map (kbd "C-M-g") (lambda () (interactive) (term explicit-shell-file-name)))
+(define-key global-map (kbd "C-M-g") (lambda () (interactive) (eshell)))
 
 ;; Toggle inline images in org-mode
 (global-set-key (kbd "C-M-u") 'org-toggle-inline-images)
