@@ -30,6 +30,9 @@
 (fit-window-to-buffer)
 (windmove-up)
 
+;; Run Emacs server
+(server-start)
+
 ;; Run emacs shell
 (define-key global-map (kbd "C-M-g") (lambda () (interactive) (eshell)))
 
