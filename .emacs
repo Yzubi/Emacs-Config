@@ -21,20 +21,24 @@
 ;; Y or N exit
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; Run emacs shell at startup
-(setq eshell-banner-message "")
-(eshell)
-(split-window-vertically)
-(switch-to-buffer "*scratch*")
-(windmove-down)
-(fit-window-to-buffer)
-(windmove-up)
-
 ;; Run Emacs server
 (server-start)
 
 ;; Run emacs shell
-(define-key global-map (kbd "C-M-g") (lambda () (interactive) (eshell)))
+(setq eshell-banner-message "")
+
+(defun Start-Terminal-Custom ()
+  (interactive)
+  
+  ;; Put your commands below
+  (split-window-vertically)
+  (windmove-down)
+  (eshell)
+  (fit-window-to-buffer)
+  (windmove-up)
+)
+
+(global-set-key (kbd "C-M-g") 'Start-Terminal-Custom)
 
 ;; Toggle inline images in org-mode
 (global-set-key (kbd "C-M-u") 'org-toggle-inline-images)
