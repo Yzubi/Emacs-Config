@@ -5,6 +5,8 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 
+;; CTRL + Enter = enable/disable square selection
+
 ;; Shrink/Enlarge buffers
 (global-set-key (kbd "<C-s-M-up>") 'shrink-window)
 (global-set-key (kbd "<C-s-M-down>") 'enlarge-window)
@@ -22,7 +24,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Run Emacs server
-(server-start)
+;; (server-start)
 
 ;; Run emacs shell
 (setq eshell-banner-message "")
