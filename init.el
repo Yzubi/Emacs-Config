@@ -81,6 +81,7 @@
 
 ;; Cua-mode CTRL+V CTRL+C
 (cua-mode t)
+(setq cua-keep-region-after-copy t)
 
 ;; Disable autosave
 ;; (setq auto-save-default nil)
