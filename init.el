@@ -24,7 +24,7 @@
 (global-auto-complete-mode t)
 (ac-config-default)
 ;; Bind key to autocomplete
-(global-set-key (kbd "C-TAB") 'auto-complete)
+(global-set-key (kbd "C-SPC") 'auto-complete)
 ;; Disable realtime auto-completion listing 
 (setq ac-auto-start nil)
 
@@ -81,9 +81,10 @@
 
 ;; Cua-mode CTRL+V CTRL+C
 (cua-mode t)
-(setq delete-selection-mode nil)
+
 (setq cua-keep-region-after-copy t)
-(delete-selection-mode 1)
+;(delete-selection-mode 1)
+;(setq delete-selection-mode nil)
 
 ;; Disable autosave
 ;; (setq auto-save-default nil)
