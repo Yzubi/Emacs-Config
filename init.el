@@ -49,7 +49,17 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Run Emacs server
+(load "server")
+(unless (server-running-p) (server-start))
 ;; (server-start)
+
+;; Change default startup buffer message
+(setq initial-scratch-message "Your Emacs server is running!")
+
+;; Change default startup echo message
+;(defun display-startup-echo-area-message ()
+;(message "Let the hacking begin!"))
+
 
 ;; Run shell
 (setq eshell-banner-message "")
