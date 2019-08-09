@@ -51,7 +51,7 @@
 ;; Run Emacs server
 (load "server")
 (unless (server-running-p) (server-start))
-;; (server-start)
+(server-start)
 
 ;; Change default startup buffer message
 (setq initial-scratch-message "Your Emacs server is running!")
@@ -120,8 +120,8 @@
 ;; Search
 (global-unset-key ["C-s"])
 (global-set-key (kbd "C-f") 'isearch-forward)
-(define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
-(define-key isearch-mode-map (kbd "C-s") 'isearch-repeat-backward)
+(define-key isearch-mode-map (kbd "<return>") 'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "M-<return>") 'isearch-repeat-backward)
 
 ;; Suspend frame
 (global-set-key (kbd "s-s") 'suspend-frame)
