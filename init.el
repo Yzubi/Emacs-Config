@@ -51,7 +51,6 @@
 ;; Run Emacs server
 (load "server")
 (unless (server-running-p) (server-start))
-(server-start)
 
 ;; Change default startup buffer message
 (setq initial-scratch-message "Your Emacs server is running!")
