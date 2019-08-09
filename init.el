@@ -120,7 +120,9 @@
 (global-unset-key ["C-s"])
 (global-set-key (kbd "C-f") 'isearch-forward)
 (define-key isearch-mode-map (kbd "<return>") 'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "<RET>") 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "M-<return>") 'isearch-repeat-backward)
+(define-key isearch-mode-map (kbd "M-<RET>") 'isearch-repeat-backward)
 
 ;; Suspend frame
 (global-set-key (kbd "s-s") 'suspend-frame)
