@@ -121,18 +121,17 @@
 ;; Search
 (global-unset-key ["C-s"])
 (global-set-key (kbd "C-f") 'isearch-forward)
+(define-key isearch-mode-map (kbd "<down>") 'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "<up>") 'isearch-repeat-backward)
 (define-key isearch-mode-map (kbd "<return>") 'isearch-repeat-forward)
-(define-key isearch-mode-map (kbd "M-<return>") 'isearch-repeat-backward)
 
 ;; St Terminal compatibility Search, selection and CUA using shift
 (global-set-key (kbd "C-M-@") 'cua-set-rectangle-mark)
 (define-key isearch-mode-map (kbd "<RET>") 'isearch-repeat-forward)
-(define-key isearch-mode-map (kbd "M-<RET>") 'isearch-repeat-backward)
 (define-key input-decode-map "\e[1;2A" [S-up])
 (define-key input-decode-map "\e[1;2B" [S-down])
 (define-key input-decode-map "\e[1;3D" [M-left])
 (define-key input-decode-map "\e[1;3C" [M-right])
-
 
 ;; Suspend frame
 (global-set-key (kbd "s-s") 'suspend-frame)
