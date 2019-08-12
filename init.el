@@ -34,10 +34,10 @@
 (global-set-key (kbd "<C-s-M-down>") 'enlarge-window)
 (global-set-key (kbd "<C-s-M-left>") 'shrink-window-horizontally)
 (global-set-key (kbd "<C-s-M-right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "<M-s-up>") 'windmove-up)
-(global-set-key (kbd "<M-s-down>") 'windmove-down)
-(global-set-key (kbd "<M-s-left>") 'windmove-left)
-(global-set-key (kbd "<M-s-right>") 'windmove-right)
+(global-set-key (kbd "<M-up>") 'windmove-up)
+(global-set-key (kbd "<M-down>") 'windmove-down)
+(global-set-key (kbd "<M-left>") 'windmove-left)
+(global-set-key (kbd "<M-right>") 'windmove-right)
 
 ;; GPG binary
 (setq epg-gpg-program "/usr/bin/gpg2")
@@ -133,6 +133,10 @@
 (define-key input-decode-map "\e[1;2B" [S-down])
 (define-key input-decode-map "\e[1;3D" [M-left])
 (define-key input-decode-map "\e[1;3C" [M-right])
+(define-key input-decode-map "\e[1;5D" [C-left])
+(define-key input-decode-map "\e[1;5C" [C-right])
+(define-key input-decode-map "\M-[1;6D" [C-S-left])
+(define-key input-decode-map "\M-[1;6C" [C-S-right])
 
 ;; Suspend frame
 (global-set-key (kbd "s-s") 'suspend-frame)
