@@ -125,7 +125,8 @@
 (define-key isearch-mode-map (kbd "<up>") 'isearch-repeat-backward)
 (define-key isearch-mode-map (kbd "<return>") 'isearch-repeat-forward)
 
-;; St Terminal compatibility Search, selection and CUA using shift
+;; St Terminal compatibility Search, selection and CUA using shift, etc...
+(keyboard-translate ?\C-h ?\C-?)
 (global-set-key (kbd "C-M-@") 'cua-set-rectangle-mark)
 (define-key isearch-mode-map (kbd "<RET>") 'isearch-repeat-forward)
 (define-key input-decode-map "\e[1;2A" [S-up])
@@ -143,6 +144,9 @@
    (let ((buffer-modified-p nil))
      (kill-buffer (current-buffer))))
 (global-set-key (kbd "C-w") 'volatile-kill-buffer)     ;; Unconditionally kill unmodified buffers.
+
+;; Kill frame
+(global-set-key (kbd "C-M-w") 'save-buffers-kill-terminal)
 
 ;; New buffer/switch buffer
 (global-set-key (kbd "M-q") 'switch-to-buffer)
