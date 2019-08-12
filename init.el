@@ -143,7 +143,7 @@
    (interactive)
    (let ((buffer-modified-p nil))
      (kill-buffer (current-buffer))))
-(global-set-key (kbd "C-w") 'volatile-kill-buffer)     ;; Unconditionally kill unmodified buffers.
+(global-set-key (kbd "C-w") 'kill-buffer-and-window)     ;; Unconditionally kill unmodified buffers.
 
 ;; Kill frame
 (global-set-key (kbd "C-M-w") 'save-buffers-kill-terminal)
