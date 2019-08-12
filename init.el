@@ -20,13 +20,14 @@
 ;; Install ini-mode for ini files
 (require 'auto-complete)
 (require 'auto-complete-config)
-; (setq ac-modes '(c++-mode c-mode sql-mode ini-mode))
+(setq ac-modes '(c++-mode c-mode sql-mode ini-mode))
 (global-auto-complete-mode t)
 (ac-config-default)
 ;; Bind key to autocomplete
-(global-set-key (kbd "C-SPC") 'auto-complete)
+;; (global-set-key (kbd "M-SPC") 'auto-complete)
+
 ;; Disable realtime auto-completion listing 
-(setq ac-auto-start nil)
+;; (setq ac-auto-start nil)
 
 ;; Shrink/Enlarge buffers
 (global-set-key (kbd "<C-s-M-up>") 'shrink-window)
@@ -90,6 +91,7 @@
 
 ;; Cua-mode CTRL+V CTRL+C
 (cua-mode t)
+(global-set-key (kbd "C-M-SPC") 'cua-set-rectangle-mark)
 
 (setq cua-keep-region-after-copy t)
 ;(delete-selection-mode 1)
@@ -123,13 +125,13 @@
 (define-key isearch-mode-map (kbd "M-<return>") 'isearch-repeat-backward)
 
 ;; St Terminal compatibility Search, selection and CUA using shift
-;;(define-key isearch-mode-map (kbd "<RET>") 'isearch-repeat-forward)
-;;(define-key isearch-mode-map (kbd "M-<RET>") 'isearch-repeat-backward)
-;;(global-set-key (kbd "M-RET") 'cua-set-rectangle-mark)
-;;(define-key input-decode-map "\e[1;2A" [S-up])
-;;(define-key input-decode-map "\e[1;2B" [S-down])
-;;(define-key input-decode-map "\e[1;3D" [M-left])
-;;(define-key input-decode-map "\e[1;3C" [M-right])
+(global-set-key (kbd "C-M-@") 'cua-set-rectangle-mark)
+(define-key isearch-mode-map (kbd "<RET>") 'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "M-<RET>") 'isearch-repeat-backward)
+(define-key input-decode-map "\e[1;2A" [S-up])
+(define-key input-decode-map "\e[1;2B" [S-down])
+(define-key input-decode-map "\e[1;3D" [M-left])
+(define-key input-decode-map "\e[1;3C" [M-right])
 
 
 ;; Suspend frame
