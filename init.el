@@ -91,7 +91,7 @@
 
 ;; Cua-mode CTRL+V CTRL+C
 (cua-mode t)
-(global-set-key (kbd "M-SPC") 'cua-set-rectangle-mark)
+(global-set-key (kbd "C-M-SPC") 'cua-set-rectangle-mark)
 
 (setq cua-keep-region-after-copy t)
 ;(delete-selection-mode 1)
