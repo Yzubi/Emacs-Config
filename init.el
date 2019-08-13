@@ -139,8 +139,8 @@
 
 ;; St Terminal compatibility Search, selection and CUA using shift, etc...
 ;; (keyboard-translate ?\C-h ?\C-?)
-(global-set-key (kbd "C-M-@") 'cua-set-rectangle-mark)
 (define-key isearch-mode-map (kbd "<RET>") 'isearch-repeat-forward)
+(global-set-key (kbd "C-M-@") (kbd "C-M-SPC"))
 (define-key input-decode-map "\e[1;2A" [S-up])
 (define-key input-decode-map "\e[1;2B" [S-down])
 (define-key input-decode-map "\e[1;3D" [M-left])
