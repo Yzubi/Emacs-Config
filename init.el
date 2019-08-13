@@ -13,10 +13,13 @@
 ;; (setq company-dabbrev-downcase nil)
 ;; (global-company-mode)
 
+;; Stop indenting previous line electric indent
+(setq-default electric-indent-inhibit t)
+
 ;; Enable xterm mouse mode
 (xterm-mouse-mode t)
 
-;; Goto Line
+;; Goto line
 (global-set-key (kbd "C-g") 'goto-line)
 
 ;; Enable { highlighting by default
