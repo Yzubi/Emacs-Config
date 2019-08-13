@@ -13,6 +13,9 @@
 ;; (setq company-dabbrev-downcase nil)
 ;; (global-company-mode)
 
+;; Enable xterm mouse mode
+(xterm-mouse-mode t)
+
 ;; Enable { highlighting by default
 (show-paren-mode 1)
 
@@ -137,6 +140,10 @@
 (define-key input-decode-map "\e[1;5C" [C-right])
 (define-key input-decode-map "\M-[1;6D" [C-S-left])
 (define-key input-decode-map "\M-[1;6C" [C-S-right])
+(define-key input-decode-map "\M-[1;5A" [C-up])
+(define-key input-decode-map "\M-[1;5B" [C-down])
+(define-key input-decode-map "\M-[1;6A" [S-C-up])
+(define-key input-decode-map "\M-[1;6B" [S-C-down])
 
 ;; Suspend frame
 (global-set-key (kbd "s-s") 'suspend-frame)
