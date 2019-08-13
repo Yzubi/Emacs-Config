@@ -128,15 +128,17 @@
 ;; Ido mode
 (ido-mode 1)
 
-;; Search
-(global-unset-key ["C-s"])
-(global-set-key (kbd "C-f") 'isearch-forward)
+;; Search regexp
+(global-set-key (kbd "C-f") 'isearch-forward-regexp)
 (define-key isearch-mode-map (kbd "<down>") 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "<up>") 'isearch-repeat-backward)
 (define-key isearch-mode-map (kbd "<return>") 'isearch-repeat-forward)
 
+;; Replace regexp
+(global-set-key (kbd "C-h") 'query-replace-regexp)
+
 ;; St Terminal compatibility Search, selection and CUA using shift, etc...
-(keyboard-translate ?\C-h ?\C-?)
+;; (keyboard-translate ?\C-h ?\C-?)
 (global-set-key (kbd "C-M-@") 'cua-set-rectangle-mark)
 (define-key isearch-mode-map (kbd "<RET>") 'isearch-repeat-forward)
 (define-key input-decode-map "\e[1;2A" [S-up])
