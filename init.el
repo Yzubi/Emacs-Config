@@ -16,6 +16,9 @@
 ;; Enable xterm mouse mode
 (xterm-mouse-mode t)
 
+;; Goto Line
+(global-set-key (kbd "C-g") 'goto-line)
+
 ;; Enable { highlighting by default
 (show-paren-mode 1)
 
@@ -92,11 +95,12 @@
 ;; Select all using CTRL + A
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 
-;; Cua-mode CTRL+V CTRL+C
+;; Cua-mode CTRL+V CTRL+C, and redo
 (cua-mode t)
 (global-set-key (kbd "C-M-SPC") 'cua-set-rectangle-mark)
 
 (setq cua-keep-region-after-copy t)
+
 ;(delete-selection-mode 1)
 ;(setq delete-selection-mode nil)
 
