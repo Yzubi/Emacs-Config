@@ -62,10 +62,13 @@ using the specified hippie-expand function."
 (global-set-key (kbd "<C-s-M-down>") 'enlarge-window)
 (global-set-key (kbd "<C-s-M-left>") 'shrink-window-horizontally)
 (global-set-key (kbd "<C-s-M-right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "<M-up>") 'windmove-up)
-(global-set-key (kbd "<M-down>") 'windmove-down)
-(global-set-key (kbd "<M-left>") 'windmove-left)
-(global-set-key (kbd "<M-right>") 'windmove-right)
+
+;; Enable window numbering mode
+(window-numbering-mode)
+;;(global-set-key (kbd "<M-up>") 'windmove-up)
+;;(global-set-key (kbd "<M-down>") 'windmove-down)
+;;(global-set-key (kbd "<M-left>") 'windmove-left)
+;;(global-set-key (kbd "<M-right>") 'windmove-right)
 
 ;; GPG binary
 ;;(setq epg-gpg-program "/usr/bin/gpg2")
