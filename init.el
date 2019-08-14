@@ -119,6 +119,10 @@ using the specified hippie-expand function."
 ;; Open file manager dired
 (global-set-key (kbd "C-o") 'dired-at-point)
 
+;; Dired subtree
+(eval-after-load "dired" '(progn
+  (define-key dired-mode-map (kbd "TAB") 'dired-subtree-toggle) ))
+
 ;; Cua-mode CTRL+V CTRL+C, and redo
 (cua-mode t)
 (global-set-key (kbd "M-SPC") 'set-mark-command)
@@ -217,7 +221,8 @@ using the specified hippie-expand function."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cua-keep-region-after-copy t)
- '(custom-enabled-themes (quote (wombat))))
+ '(custom-enabled-themes (quote (wombat)))
+ '(package-selected-packages (quote (dired-subtree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
