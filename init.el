@@ -208,7 +208,7 @@ using the specified hippie-expand function."
 (global-set-key (kbd "C-s") 'save-buffer)
 
 ;; Search files
-(global-set-key (kbd "C-l") 'locate)
+(global-set-key (kbd "C-M-f") 'locate)
 
 ;; Open link in org mode
 (global-set-key (kbd "S-SPC") 'org-open-at-point)
