@@ -93,8 +93,8 @@ using the specified hippie-expand function."
 (setq initial-scratch-message "Your Emacs server is running!")
 
 ;; Change default startup echo message
-;(defun display-startup-echo-area-message ()
-(message "Hello! :D")
+(defun display-startup-echo-area-message ()
+  (message "Hello! :D"))
 
 ;; Run shell
 (setq eshell-banner-message "")
