@@ -43,7 +43,7 @@ using the specified hippie-expand function."
   (interactive)
   (my-ido-hippie-expand-with 'hippie-expand))
 
-(global-set-key (kbd "<M-SPC>") 'my-ido-hippie-expand)
+(global-set-key (kbd "<C-SPC>") 'my-ido-hippie-expand)
 
 ;; Stop indenting previous line electric indent
 (setq-default electric-indent-inhibit t)
@@ -118,6 +118,7 @@ using the specified hippie-expand function."
 
 ;; Cua-mode CTRL+V CTRL+C, and redo
 (cua-mode t)
+(global-set-key (kbd "M-SPC") 'cua-set-mark)
 (global-set-key (kbd "C-M-SPC") 'cua-set-rectangle-mark)
 
 (setq cua-keep-region-after-copy t)
@@ -158,6 +159,7 @@ using the specified hippie-expand function."
 ;; St Terminal compatibility Search, selection and CUA using shift, etc...
 ;; (keyboard-translate ?\C-h ?\C-?)
 (define-key isearch-mode-map (kbd "<RET>") 'isearch-repeat-forward)
+(global-set-key (kbd "C-@") 'my-ido-hippie-expand)
 (global-set-key (kbd "C-M-@") (kbd "C-M-SPC"))
 (define-key input-decode-map "\e[1;2A" [S-up])
 (define-key input-decode-map "\e[1;2B" [S-down])
