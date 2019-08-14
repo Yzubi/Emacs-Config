@@ -116,6 +116,9 @@ using the specified hippie-expand function."
 ;; Select all using CTRL + A
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 
+;; Open file manager dired
+(global-set-key (kbd "C-o") 'dired-at-point)
+
 ;; Cua-mode CTRL+V CTRL+C, and redo
 (cua-mode t)
 (global-set-key (kbd "M-SPC") 'set-mark-command)
