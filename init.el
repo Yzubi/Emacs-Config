@@ -119,6 +119,12 @@ using the specified hippie-expand function."
 ;; Open file manager dired
 (global-set-key (kbd "C-o") 'dired-at-point)
 
+;; Hide dired details by default
+(add-hook 'dired-mode-hook
+      (lambda ()
+        (dired-hide-details-mode)
+        (dired-sort-toggle-or-edit)))
+
 ;; Dired subtree
 (eval-after-load "dired" '(progn
   (define-key dired-mode-map (kbd "TAB") 'dired-subtree-toggle) ))
