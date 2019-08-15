@@ -52,7 +52,7 @@ using the specified hippie-expand function."
 (xterm-mouse-mode t)
 
 ;; Goto line
-(global-set-key (kbd "C-g") 'goto-line)
+(global-set-key (kbd "C-l") 'goto-line)
 
 ;; Enable { highlighting by default
 (show-paren-mode 1)
