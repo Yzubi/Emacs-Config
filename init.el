@@ -97,6 +97,7 @@ using the specified hippie-expand function."
 ;; Run shell
 (setq eshell-banner-message "")
 (setq explicit-shell-file-name "/bin/bash")
+(setq eshell-scroll-to-bottom-on-output "all")
 
 (defun Toggle-terminal ()
   (interactive)
@@ -218,10 +219,13 @@ using the specified hippie-expand function."
    (interactive)
    (let ((buffer-modified-p nil))
      (kill-buffer (current-buffer))))
-(global-set-key (kbd "C-w") 'volatile-kill-buffer)     ;; Unconditionally kill unmodified buffers.
+(global-set-key (kbd "C-w") 'kill-buffer-and-window)     ;; Unconditionally kill unmodified buffers.
 
-;; Kill frame
+;; Close window
 (global-set-key (kbd "C-M-w") 'delete-window)
+
+;; Quit Emacs
+(global-set-key (kbd "C-q") 'save-buffers-kill-emacs)
 
 ;; New buffer/switch buffer
 (global-set-key (kbd "M-q") 'switch-to-buffer)
