@@ -99,6 +99,7 @@ using the specified hippie-expand function."
   (message "Hello! :D"))
 
 ;; Run shell
+(eshell)
 (setq eshell-banner-message "")
 (setq explicit-shell-file-name "/bin/bash")
 
@@ -109,12 +110,12 @@ using the specified hippie-expand function."
   (split-window-vertically)
   (windmove-down)
   ;; Use "term explicit-shell-file-name" or "eshell"
-  (eshell)
+  (switch-to-buffer "*eshell*")
   (fit-window-to-buffer)
   (windmove-up)
 )
 
-(global-set-key (kbd "C-M-g") 'Start-Terminal-Custom)
+(global-set-key (kbd "C-t") 'Start-Terminal-Custom)
 
 ;; Run latest terminal command
 (global-set-key (kbd "<f2>") (kbd "M-0 <up><return>"))
@@ -206,10 +207,10 @@ using the specified hippie-expand function."
    (interactive)
    (let ((buffer-modified-p nil))
      (kill-buffer (current-buffer))))
-(global-set-key (kbd "C-w") 'kill-buffer-and-window)     ;; Unconditionally kill unmodified buffers.
+(global-set-key (kbd "C-w") 'volatile-kill-buffer)     ;; Unconditionally kill unmodified buffers.
 
 ;; Kill frame
-(global-set-key (kbd "C-M-w") 'save-buffers-kill-terminal)
+(global-set-key (kbd "C-M-w") 'delete-window)
 
 ;; New buffer/switch buffer
 (global-set-key (kbd "M-q") 'switch-to-buffer)
