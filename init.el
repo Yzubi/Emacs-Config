@@ -152,6 +152,10 @@ using the specified hippie-expand function."
 (eval-after-load "dired" '(progn
   (define-key dired-mode-map (kbd "TAB") 'dired-subtree-toggle) ))
 
+;; Toggle Dired editing mode
+(eval-after-load "dired" '(progn
+  (define-key dired-mode-map (kbd "C-h") 'wdired-change-to-wdired-mode) ))
+
 ;; Cua-mode CTRL+V CTRL+C, and redo
 (cua-mode t)
 (global-set-key (kbd "M-SPC") 'set-mark-command)
