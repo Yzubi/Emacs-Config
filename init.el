@@ -73,6 +73,10 @@ using the specified hippie-expand function."
 ;;(global-set-key (kbd "<M-left>") 'windmove-left)
 ;;(global-set-key (kbd "<M-right>") 'windmove-right)
 
+;; Assign number to terminal window numbering
+(setq window-numbering-assign-func
+      (lambda () (when (equal (buffer-name) "*eshell*") 0)))
+
 ;; GPG binary
 ;;(setq epg-gpg-program "/usr/bin/gpg2")
 (setf epa-pinentry-mode 'loopback)
@@ -113,7 +117,7 @@ using the specified hippie-expand function."
 (global-set-key (kbd "C-M-g") 'Start-Terminal-Custom)
 
 ;; Run latest terminal command
-(global-set-key (kbd "<f2>") (kbd "<s-M-down><up><return><M-s-up>"))
+(global-set-key (kbd "<f2>") (kbd "M-0 <up><return>"))
 
 ;; Toggle inline images in org-mode
 (global-set-key (kbd "C-M-u") 'org-toggle-inline-images)
