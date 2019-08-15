@@ -73,10 +73,6 @@ using the specified hippie-expand function."
 ;;(global-set-key (kbd "<M-left>") 'windmove-left)
 ;;(global-set-key (kbd "<M-right>") 'windmove-right)
 
-;; Assign number to terminal window numbering
-(setq window-numbering-assign-func
-      (lambda () (when (equal (buffer-name) "*eshell*") 0)))
-
 ;; GPG binary
 ;;(setq epg-gpg-program "/usr/bin/gpg2")
 (setf epa-pinentry-mode 'loopback)
@@ -99,26 +95,31 @@ using the specified hippie-expand function."
   (message "Hello! :D"))
 
 ;; Run shell
-(eshell)
 (setq eshell-banner-message "")
 (setq explicit-shell-file-name "/bin/bash")
 
-(defun Start-Terminal-Custom ()
+(defun Toggle-terminal ()
   (interactive)
-  
-  ;; Put your commands below
-  (split-window-vertically)
-  (windmove-down)
-  ;; Use "term explicit-shell-file-name" or "eshell"
-  (switch-to-buffer "*eshell*")
-  (fit-window-to-buffer)
-  (windmove-up)
-)
+  (if (get 'Toggle-terminal 'state)
+      (progn
+       ;; Put your commands below
+        (switch-to-buffer "*eshell*")
+        (kill-buffer-and-window)
+        (put 'Toggle-terminal 'state nil))
+    (progn
+       ;; Put your commands below
+       (split-window-vertically)
+       (windmove-down)
+       ;; Use "term explicit-shell-file-name" or "eshell"
+       (eshell)
+       (fit-window-to-buffer)
+       (windmove-up)
+      (put 'Toggle-terminal 'state t))))
 
-(global-set-key (kbd "C-t") 'Start-Terminal-Custom)
+(global-set-key (kbd "C-t") 'Toggle-terminal)
 
 ;; Run latest terminal command
-(global-set-key (kbd "<f2>") (kbd "M-0 <up><return>"))
+(global-set-key (kbd "<f2>") (kbd "M-9 <up><return>"))
 
 ;; Toggle inline images in org-mode
 (global-set-key (kbd "C-M-u") 'org-toggle-inline-images)
