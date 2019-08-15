@@ -252,11 +252,13 @@ using the specified hippie-expand function."
 ;; Disable the splash screen (t/0)
 (setq inhibit-splash-screen t)
 
-;; Change text scale
+;; Change text scale, zoom in zoom out
 (global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
 (global-set-key (kbd "<C-mouse-5>") 'text-scale-decrease)
 (global-set-key (kbd "C-+") 'text-scale-decrease)
 (global-set-key (kbd "C--") 'text-scale-increase)
+(global-set-key (kbd "C-0") (kbd "C-x C-0"))
+
 
 ;; Enable transient mark mode
 (transient-mark-mode 1)
