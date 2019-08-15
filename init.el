@@ -113,13 +113,23 @@ using the specified hippie-expand function."
        ;; Use "term explicit-shell-file-name" or "eshell"
        (eshell)
        (fit-window-to-buffer)
+       (enlarge-window 2)
+       (enlarge-window 2)
        (windmove-up)
       (put 'Toggle-terminal 'state t))))
 
 (global-set-key (kbd "C-t") 'Toggle-terminal)
 
 ;; Run latest terminal command
-(global-set-key (kbd "<f2>") (kbd "M-9 <up><return>"))
+(defun Run-last-command ()
+  (interactive)
+  ;; Put your commands below
+   (switch-to-buffer "*eshell*")
+   (eshell-previous-input 1)
+   (eshell-send-input)
+   (previous-buffer)
+)
+(global-set-key (kbd "<f2>") 'Run-last-command)
 
 ;; Toggle inline images in org-mode
 (global-set-key (kbd "C-M-u") 'org-toggle-inline-images)
