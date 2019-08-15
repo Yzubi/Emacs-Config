@@ -219,10 +219,13 @@ using the specified hippie-expand function."
    (interactive)
    (let ((buffer-modified-p nil))
      (kill-buffer (current-buffer))))
-(global-set-key (kbd "C-w") 'kill-buffer-and-window)     ;; Unconditionally kill unmodified buffers.
+(global-set-key (kbd "M-w") 'volatile-kill-buffer)     ;; Unconditionally kill unmodified buffers.
 
 ;; Close window
 (global-set-key (kbd "C-M-w") 'delete-window)
+
+;; Close buffer and window
+(global-set-key (kbd "C-w") 'kill-buffer-and-window)
 
 ;; Quit Emacs
 (global-set-key (kbd "C-q") 'save-buffers-kill-emacs)
