@@ -154,7 +154,7 @@ using the specified hippie-expand function."
 
 ;; Toggle Dired editing mode
 (eval-after-load "dired" '(progn
-  (define-key dired-mode-map (kbd "C-h") 'wdired-change-to-wdired-mode) ))
+  (define-key dired-mode-map (kbd "C-h") 'dired-toggle-read-only) ))
 
 ;; Cua-mode CTRL+V CTRL+C, and redo
 (cua-mode t)
