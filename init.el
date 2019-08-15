@@ -252,8 +252,16 @@ using the specified hippie-expand function."
 ;; Disable the splash screen (t/0)
 (setq inhibit-splash-screen t)
 
+;; Change text scale
+(global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
+(global-set-key (kbd "<C-mouse-5>") 'text-scale-decrease)
+(global-set-key (kbd "C-+") 'text-scale-decrease)
+(global-set-key (kbd "C--") 'text-scale-increase)
+
 ;; Enable transient mark mode
 (transient-mark-mode 1)
+
+;; Custom set variables
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
