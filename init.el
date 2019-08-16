@@ -40,7 +40,13 @@
 (global-set-key (kbd "<f3>") 'dired-light-sidebar)
 
 ;; Open file manager dired
-(global-set-key (kbd "C-o") '(dired-at-point))
+(defun dired-at-point-dot ()
+  (interactive)
+  
+  ;; Put your commands below
+  (dired-at-point ".")
+)
+(global-set-key (kbd "C-o") 'dired-at-point-dot)
 
 ;; Hide dired details by default
 (add-hook 'dired-mode-hook
