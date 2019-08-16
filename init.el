@@ -173,24 +173,16 @@ using the specified hippie-expand function."
 
 (defun Toggle-terminal ()
   (interactive)
-  (if (get 'Toggle-terminal 'state)
-      (progn
-       ;; Put your commands below
-        (switch-to-buffer "*eshell*")
-        (kill-buffer-and-window)
-        (put 'Toggle-terminal 'state nil))
-    (progn
-       ;; Put your commands below
-       (split-window-vertically)
-       (windmove-down)
-       ;; Use "term explicit-shell-file-name" or "eshell"
-       (eshell)
-       (fit-window-to-buffer)
-       (enlarge-window 2)
-       (enlarge-window 2)
-       (windmove-up)
-      (put 'Toggle-terminal 'state t))))
-
+  (let (( buffer
+          (save-window-excursion
+            (ibuffer nil "*side-ibuffer*")
+            (setq-local buffer-stale-function
+            (lambda (&rest ignore) t))
+               (eshell)         
+            (current-buffer))))
+    (pop-to-buffer buffer
+                   '(display-buffer-in-side-window
+                     (side . bottom)))))
 (global-set-key (kbd "C-t") 'Toggle-terminal)
 
 ;; Run latest terminal command
