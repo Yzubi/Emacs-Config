@@ -63,11 +63,10 @@ using the specified hippie-expand function."
 ;; (global-set-key (kbd "<C-s-M-left>") 'shrink-window-horizontally)
 ;; (global-set-key (kbd "<C-s-M-right>") 'enlarge-window-horizontally)
 
-;; Resize windows
+;; Resize windows and move windows (Ace-window)
 (global-set-key (kbd "C-r") 'resize-window)
+(global-set-key (kbd "M-r") 'ace-window)
 
-;; Enable window numbering mode
-(window-numbering-mode)
 ;;(global-set-key (kbd "<M-up>") 'windmove-up)
 ;;(global-set-key (kbd "<M-down>") 'windmove-down)
 ;;(global-set-key (kbd "<M-left>") 'windmove-left)
@@ -271,7 +270,7 @@ using the specified hippie-expand function."
  ;; If there is more than one, they won't work right.
  '(cua-keep-region-after-copy t)
  '(custom-enabled-themes (quote (wombat)))
- '(package-selected-packages (quote (resize-window dired-subtree))))
+ '(package-selected-packages (quote (ace-window resize-window dired-subtree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
