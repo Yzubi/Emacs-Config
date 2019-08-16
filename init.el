@@ -17,13 +17,44 @@
                    (ibuffer-auto-mode 1)
                    (setq-local ibuffer-formats (append ibuffer-formats '((mark " " name))))
                    (setq-local ibuffer-current-format (1- (length ibuffer-formats)))
-                   (ibuffer-update-format)
                    (ibuffer-redisplay t)
                    (setq-local ibuffer-display-summary nil)
             (current-buffer))))
     (pop-to-buffer buffer
                    '(display-buffer-in-side-window
+                     (side . right)))))
+(global-set-key (kbd "<f1>") 'ibuffer-light-sidebar)
+
+;; Dired sidebar
+(defun dired-light-sidebar ()
+  (interactive)
+  (let (( buffer
+          (save-window-excursion
+            (dired-at-point ".")
+            (setq-local buffer-stale-function
+                        (lambda (&rest ignore) t))
+            (current-buffer))))
+    (pop-to-buffer buffer
+                   '(display-buffer-in-side-window
                      (side . left)))))
+(global-set-key (kbd "<f3>") 'dired-light-sidebar)
+
+;; Open file manager dired
+(global-set-key (kbd "C-o") '(dired-at-point))
+
+;; Hide dired details by default
+(add-hook 'dired-mode-hook
+      (lambda ()
+        (dired-hide-details-mode)
+        (dired-sort-toggle-or-edit)))
+
+;; Dired subtree
+(eval-after-load "dired" '(progn
+  (define-key dired-mode-map (kbd "TAB") 'dired-subtree-toggle) ))
+
+;; Toggle Dired editing mode
+(eval-after-load "dired" '(progn
+  (define-key dired-mode-map (kbd "C-h") 'dired-toggle-read-only) ))
 
 ;; Show different symbols characters for tabs and spaces
 (global-whitespace-mode)
@@ -179,23 +210,6 @@ using the specified hippie-expand function."
 
 ;; Select all using CTRL + A
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
-
-;; Open file manager dired
-(global-set-key (kbd "C-o") 'dired-at-point)
-
-;; Hide dired details by default
-(add-hook 'dired-mode-hook
-      (lambda ()
-        (dired-hide-details-mode)
-        (dired-sort-toggle-or-edit)))
-
-;; Dired subtree
-(eval-after-load "dired" '(progn
-  (define-key dired-mode-map (kbd "TAB") 'dired-subtree-toggle) ))
-
-;; Toggle Dired editing mode
-(eval-after-load "dired" '(progn
-  (define-key dired-mode-map (kbd "C-h") 'dired-toggle-read-only) ))
 
 ;; Cua-mode CTRL+V CTRL+C, and redo
 (cua-mode t)
