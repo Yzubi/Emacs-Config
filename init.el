@@ -5,6 +5,26 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 
+;; Buffer sidebar
+
+(defun ibuffer-light-sidebar ()
+  (interactive)
+  (let (( buffer
+          (save-window-excursion
+            (ibuffer nil "*side-ibuffer*")
+            (setq-local buffer-stale-function
+                        (lambda (&rest ignore) t))
+                   (ibuffer-auto-mode 1)
+                   (setq-local ibuffer-formats (append ibuffer-formats '((mark " " name))))
+                   (setq-local ibuffer-current-format (1- (length ibuffer-formats)))
+                   (ibuffer-update-format)
+                   (ibuffer-redisplay t)
+                   (setq-local ibuffer-display-summary nil)
+            (current-buffer))))
+    (pop-to-buffer buffer
+                   '(display-buffer-in-side-window
+                     (side . left)))))
+
 ;; Show different symbols characters for tabs and spaces
 (global-whitespace-mode)
 (setq whitespace-style '(trailing tabs newline tab-mark))
@@ -301,7 +321,7 @@ using the specified hippie-expand function."
  '(custom-enabled-themes (quote (wombat)))
  '(package-selected-packages
    (quote
-    (centered-cursor-mode avy-zap ace-jump-mode ace-window resize-window dired-subtree))))
+    (tabbar centered-cursor-mode avy-zap ace-jump-mode ace-window resize-window dired-subtree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
