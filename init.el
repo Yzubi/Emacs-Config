@@ -204,11 +204,18 @@ using the specified hippie-expand function."
 ;; Ido mode
 (ido-mode 1)
 
-;; Search regexp
+;; Search text, search regexp, find text, find regexp
 (global-set-key (kbd "C-f") 'isearch-forward-regexp)
-(define-key isearch-mode-map (kbd "<down>") 'isearch-repeat-forward)
-(define-key isearch-mode-map (kbd "<up>") 'isearch-repeat-backward)
-(define-key isearch-mode-map (kbd "<return>") 'isearch-repeat-forward)
+(progn
+  ;; set arrow keys in isearch. left/right is backward/forward, up/down is history. press Return to exit
+  (define-key isearch-mode-map (kbd "<up>") 'isearch-ring-retreat )
+  (define-key isearch-mode-map (kbd "<down>") 'isearch-ring-advance )
+  (define-key isearch-mode-map (kbd "<left>") 'isearch-repeat-backward)
+  (define-key isearch-mode-map (kbd "<right>") 'isearch-repeat-forward)
+  (define-key isearch-mode-map (kbd "<return>") 'isearch-repeat-forward)
+
+  (define-key minibuffer-local-isearch-map (kbd "<left>") 'isearch-reverse-exit-minibuffer)
+  (define-key minibuffer-local-isearch-map (kbd "<right>") 'isearch-forward-exit-minibuffer))
 
 ;; Replace regexp
 (global-set-key (kbd "C-h") 'query-replace-regexp)
@@ -257,7 +264,7 @@ using the specified hippie-expand function."
 ;; Save buffer
 (global-set-key (kbd "C-s") 'save-buffer)
 
-;; Search files
+;; Search files, find files
 (global-set-key (kbd "C-M-f") 'locate)
 
 ;; Open link in org mode
