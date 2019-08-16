@@ -66,6 +66,24 @@ using the specified hippie-expand function."
 ;; Resize windows and move windows (Ace-window)
 (global-set-key (kbd "C-r") 'resize-window)
 (global-set-key (kbd "M-r") 'ace-window)
+(setq aw-dispatch-always 1)
+(setq aw-background nil)
+
+(setq aw-keys '(?1 ?2 ?3 ?4 ?5 ?6 ?7 ?8 ?9))
+(defvar aw-dispatch-alist
+  '((?x aw-delete-window "Delete Window")
+	(?m aw-swap-window "Swap Windows")
+	(?M aw-move-window "Move Window")
+	(?c aw-copy-window "Copy Window")
+	(?j aw-switch-buffer-in-window "Select Buffer")
+	(?n aw-flip-window)
+	(?u aw-switch-buffer-other-window "Switch Buffer Other Window")
+	(?c aw-split-window-fair "Split Fair Window")
+	(?v aw-split-window-vert "Split Vert Window")
+	(?b aw-split-window-horz "Split Horz Window")
+	(?o delete-other-windows "Delete Other Windows")
+	(?? aw-show-dispatch-help))
+  "List of actions for `aw-dispatch-default'.")
 
 ;;(global-set-key (kbd "<M-up>") 'windmove-up)
 ;;(global-set-key (kbd "<M-down>") 'windmove-down)
@@ -270,7 +288,9 @@ using the specified hippie-expand function."
  ;; If there is more than one, they won't work right.
  '(cua-keep-region-after-copy t)
  '(custom-enabled-themes (quote (wombat)))
- '(package-selected-packages (quote (ace-window resize-window dired-subtree))))
+ '(package-selected-packages
+   (quote
+    (centered-cursor-mode avy-zap ace-jump-mode ace-window resize-window dired-subtree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
