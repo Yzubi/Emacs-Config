@@ -6,7 +6,6 @@
              '("melpa" . "http://melpa.org/packages/") t)
 
 ;; Buffer sidebar
-
 (defun ibuffer-light-sidebar ()
   (interactive)
   (let (( buffer
@@ -47,6 +46,11 @@
   (dired-at-point ".")
 )
 (global-set-key (kbd "C-o") 'dired-at-point-dot)
+
+
+
+;; Dired directory first
+(setq dired-listing-switches "-laXGh --group-directories-first")
 
 ;; Hide dired details by default
 (add-hook 'dired-mode-hook
