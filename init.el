@@ -5,14 +5,25 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 
+(defun toggle-window-dedicated ()
+  "Control whether or not Emacs is allowed to display another
+buffer in current window."
+  (interactive)
+  (message
+   (if (let (window (get-buffer-window (current-buffer)))
+         (set-window-dedicated-p window (not (window-dedicated-p window))))
+       "%s: Can't touch this!"
+     "%s is up for grabs.")
+   (current-buffer)))
+
+(global-set-key (kbd "C-c t") 'toggle-window-dedicated)
+
 ;; Buffer sidebar
 (defun ibuffer-light-sidebar ()
   (interactive)
   (let (( buffer
           (save-window-excursion
             (ibuffer nil "*side-ibuffer*")
-            (setq-local buffer-stale-function
-                        (lambda (&rest ignore) t))
                    (ibuffer-auto-mode 1)
                    (setq-local ibuffer-formats (append ibuffer-formats '((mark "" name))))
                    (setq-local ibuffer-current-format (1- (length ibuffer-formats)))
@@ -30,8 +41,6 @@
   (let (( buffer
           (save-window-excursion
             (dired-at-point ".")
-            (setq-local buffer-stale-function
-                        (lambda (&rest ignore) t))
             (current-buffer))))
     (pop-to-buffer buffer
                    '(display-buffer-in-side-window
