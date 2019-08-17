@@ -58,6 +58,9 @@
 (eval-after-load "dired" '(progn
   (define-key dired-mode-map (kbd "TAB") 'dired-subtree-toggle) ))
 
+;; Disable Dired subtree colors.
+(setq dired-subtree-use-backgrounds nil)
+
 ;; Toggle Dired editing mode
 (eval-after-load "dired" '(progn
   (define-key dired-mode-map (kbd "C-h") 'dired-toggle-read-only) ))
