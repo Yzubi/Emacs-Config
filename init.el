@@ -5,23 +5,17 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 
-(defun toggle-window-dedicated ()
-  "Control whether or not Emacs is allowed to display another
-buffer in current window."
+;; Turn window into a dedicated window
+(defun turn-window-dedicated ()
   (interactive)
-  (message
-   (if (let (window (get-buffer-window (current-buffer)))
-         (set-window-dedicated-p window (not (window-dedicated-p window))))
-       "%s: Can't touch this!"
-     "%s is up for grabs.")
-   (current-buffer)))
-
-(global-set-key (kbd "C-c t") 'toggle-window-dedicated)
+   (let  (window (get-buffer-window (current-buffer)))
+         (set-window-dedicated-p window t)))
+(global-set-key (kbd "C-c t") 'turn-window-dedicated)
 
 ;; Buffer sidebar
 (defun ibuffer-light-sidebar ()
   (interactive)
-  (let (( buffer
+  (let (( buffer  
           (save-window-excursion
             (ibuffer nil "*side-ibuffer*")
                    (ibuffer-auto-mode 1)
@@ -32,7 +26,8 @@ buffer in current window."
             (current-buffer))))
     (pop-to-buffer buffer
                    '(display-buffer-in-side-window
-                     (side . left) (slot . -1)))))
+                    (side . left) (slot . -1))))
+                    (turn-window-dedicated))
 (global-set-key (kbd "<f1>") 'ibuffer-light-sidebar)
 
 ;; Dired sidebar
@@ -44,7 +39,8 @@ buffer in current window."
             (current-buffer))))
     (pop-to-buffer buffer
                    '(display-buffer-in-side-window
-                     (side . left) (slot . -2)))))
+                     (side . left) (slot . -2))))
+                    (turn-window-dedicated))
 (global-set-key (kbd "<f3>") 'dired-light-sidebar)
 
 ;; Open file manager dired
