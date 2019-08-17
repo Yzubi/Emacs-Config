@@ -14,14 +14,14 @@
             (setq-local buffer-stale-function
                         (lambda (&rest ignore) t))
                    (ibuffer-auto-mode 1)
-                   (setq-local ibuffer-formats (append ibuffer-formats '((mark " " name))))
+                   (setq-local ibuffer-formats (append ibuffer-formats '((mark "" name))))
                    (setq-local ibuffer-current-format (1- (length ibuffer-formats)))
                    (ibuffer-redisplay t)
                    (setq-local ibuffer-display-summary nil)
             (current-buffer))))
     (pop-to-buffer buffer
                    '(display-buffer-in-side-window
-                     (side . right)))))
+                     (side . left) (slot . -1)))))
 (global-set-key (kbd "<f1>") 'ibuffer-light-sidebar)
 
 ;; Dired sidebar
@@ -35,7 +35,7 @@
             (current-buffer))))
     (pop-to-buffer buffer
                    '(display-buffer-in-side-window
-                     (side . left)))))
+                     (side . left) (slot . -2)))))
 (global-set-key (kbd "<f3>") 'dired-light-sidebar)
 
 ;; Open file manager dired
