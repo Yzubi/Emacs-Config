@@ -28,7 +28,7 @@
                    '(display-buffer-in-side-window
                     (side . left) (slot . -1))))
                     (turn-window-dedicated))
-(global-set-key (kbd "<f1>") 'ibuffer-light-sidebar)
+(global-set-key (kbd "<f10>") 'ibuffer-light-sidebar)
 
 ;; Dired sidebar
 (defun dired-light-sidebar ()
@@ -41,7 +41,7 @@
                    '(display-buffer-in-side-window
                      (side . left) (slot . -2))))
                     (turn-window-dedicated))
-(global-set-key (kbd "<f3>") 'dired-light-sidebar)
+(global-set-key (kbd "<f11>") 'dired-light-sidebar)
 
 ;; Open file manager dired
 (defun dired-at-point-dot ()
@@ -51,6 +51,8 @@
   (dired-at-point ".")
 )
 (global-set-key (kbd "C-o") 'dired-at-point-dot)
+
+
 
 ;; Dired directory first
 (setq dired-listing-switches "-laXGh --group-directories-first")
@@ -142,8 +144,8 @@ using the specified hippie-expand function."
 ;; (global-set-key (kbd "<C-s-M-right>") 'enlarge-window-horizontally)
 
 ;; Resize windows and move windows (Ace-window)
-(bind-key* "C-r" 'resize-window)
-(bind-key* "M-r" 'ace-window)
+(bind-key* "C-<f1>" 'resize-window)
+(bind-key* "<f1>" 'ace-window)
 (setq aw-dispatch-always 1)
 (setq aw-background nil)
 
@@ -278,6 +280,7 @@ using the specified hippie-expand function."
 (define-key isearch-mode-map (kbd "<RET>") 'isearch-repeat-forward)
 (global-set-key (kbd "C-@") 'my-ido-hippie-expand)
 (global-set-key (kbd "C-M-@") (kbd "C-M-SPC"))
+(define-key input-decode-map "\^[[1;5P" (kbd "C-<f1>"))
 (define-key input-decode-map "\e[1;2A" [S-up])
 (define-key input-decode-map "\e[1;2B" [S-down])
 (define-key input-decode-map "\e[1;3D" [M-left])
