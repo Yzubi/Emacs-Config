@@ -65,7 +65,11 @@
 
 ;; Dired subtree
 (eval-after-load "dired" '(progn
-  (define-key dired-mode-map (kbd "TAB") 'dired-subtree-toggle) ))
+  (define-key dired-mode-map (kbd "TAB") 'dired-subtree-toggle)
+  (define-key dired-mode-map (kbd "C") 'dired-ranger-copy)
+  (define-key dired-mode-map (kbd "X") 'dired-ranger-move)
+  (define-key dired-mode-map (kbd "V") 'dired-ranger-paste)
+  ))
 
 ;; Disable Dired subtree colors.
 (setq dired-subtree-use-backgrounds nil)
@@ -348,7 +352,7 @@ using the specified hippie-expand function."
  '(custom-enabled-themes (quote (wombat)))
  '(package-selected-packages
    (quote
-    (tabbar centered-cursor-mode avy-zap ace-jump-mode ace-window resize-window dired-subtree))))
+    (use-package dired-ranger tabbar centered-cursor-mode avy-zap ace-jump-mode ace-window resize-window dired-subtree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
