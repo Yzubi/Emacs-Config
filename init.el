@@ -66,9 +66,9 @@
 ;; Dired subtree
 (eval-after-load "dired" '(progn
   (define-key dired-mode-map (kbd "TAB") 'dired-subtree-toggle)
-  (define-key dired-mode-map (kbd "C") 'dired-ranger-copy)
-  (define-key dired-mode-map (kbd "X") 'dired-ranger-move)
-  (define-key dired-mode-map (kbd "V") 'dired-ranger-paste)
+  (define-key dired-mode-map (kbd "c") 'dired-ranger-copy)
+  (define-key dired-mode-map (kbd "x") 'dired-ranger-move)
+  (define-key dired-mode-map (kbd "v") 'dired-ranger-paste)
   ))
 
 ;; Disable Dired subtree colors.
