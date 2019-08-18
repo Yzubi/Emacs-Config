@@ -52,8 +52,6 @@
 )
 (global-set-key (kbd "C-o") 'dired-at-point-dot)
 
-
-
 ;; Dired directory first
 (setq dired-listing-switches "-laXGh --group-directories-first")
 
@@ -144,8 +142,8 @@ using the specified hippie-expand function."
 ;; (global-set-key (kbd "<C-s-M-right>") 'enlarge-window-horizontally)
 
 ;; Resize windows and move windows (Ace-window)
-(global-set-key (kbd "C-r") 'resize-window)
-(global-set-key (kbd "M-r") 'ace-window)
+(bind-key* "C-r" 'resize-window)
+(bind-key* "M-r" 'ace-window)
 (setq aw-dispatch-always 1)
 (setq aw-background nil)
 
