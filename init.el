@@ -144,8 +144,8 @@ using the specified hippie-expand function."
 ;; (global-set-key (kbd "<C-s-M-right>") 'enlarge-window-horizontally)
 
 ;; Resize windows and move windows (Ace-window)
-(bind-key* "C-<f1>" 'resize-window)
-(bind-key* "<f1>" 'ace-window)
+(bind-key* "C-e" 'resize-window)
+(bind-key* "M-e" 'ace-swap-window)
 (setq aw-dispatch-always 1)
 (setq aw-background nil)
 
