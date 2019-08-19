@@ -55,7 +55,7 @@
 
 
 ;; Dired directory first
-(setq dired-listing-switches "-laGh1v --group-directories-first")
+;; (setq dired-listing-switches "-laGh1v --group-directories-first")
 
 ;; Hide dired details by default
 (add-hook 'dired-mode-hook
