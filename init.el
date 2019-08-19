@@ -268,6 +268,7 @@ using the specified hippie-expand function."
   (define-key isearch-mode-map (kbd "<left>") 'isearch-repeat-backward)
   (define-key isearch-mode-map (kbd "<right>") 'isearch-repeat-forward)
   (define-key isearch-mode-map (kbd "<return>") 'isearch-repeat-forward)
+  (define-key isearch-mode-map (kbd "DEL") 'isearch-del-char)
 
   (define-key minibuffer-local-isearch-map (kbd "<left>") 'isearch-reverse-exit-minibuffer)
   (define-key minibuffer-local-isearch-map (kbd "<right>") 'isearch-forward-exit-minibuffer))
