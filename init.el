@@ -134,6 +134,9 @@ using the specified hippie-expand function."
 ;; Goto line
 (global-set-key (kbd "C-l") 'goto-line)
 
+;; Enable electric pair mode, automatically insert an extra ( or ) or { or }
+(electric-pair-mode 1)
+
 ;; Enable { highlighting by default
 (show-paren-mode 1)
 
@@ -355,7 +358,7 @@ using the specified hippie-expand function."
  '(custom-enabled-themes (quote (wombat)))
  '(package-selected-packages
    (quote
-    (use-package dired-ranger tabbar centered-cursor-mode avy-zap ace-jump-mode ace-window resize-window dired-subtree))))
+    (ack-menu multiple-cursors use-package dired-ranger tabbar centered-cursor-mode avy-zap ace-jump-mode ace-window resize-window dired-subtree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
