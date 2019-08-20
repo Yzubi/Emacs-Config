@@ -135,7 +135,7 @@ using the specified hippie-expand function."
 (global-set-key (kbd "C-l") 'goto-line)
 
 ;; Enable electric pair mode, automatically insert an extra ( or ) or { or }
-(electric-pair-mode 1)
+;; (electric-pair-mode 1)
 
 ;; Enable { highlighting by default
 (show-paren-mode 1)
