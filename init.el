@@ -77,6 +77,8 @@
   (define-key dired-mode-map (kbd "c") 'dired-ranger-copy)
   (define-key dired-mode-map (kbd "x") 'dired-ranger-move)
   (define-key dired-mode-map (kbd "v") 'dired-ranger-paste)
+  (define-key dired-mode-map (kbd "M-f") 'dired-do-find-regexp)
+  (define-key dired-mode-map (kbd "M-h") 'dired-do-find-regexp-and-replace)
   ))
 
 ;; Disable Dired subtree colors.
@@ -304,8 +306,11 @@
 ;; Save buffer
 (global-set-key (kbd "C-s") 'save-buffer)
 
-;; Search files, find files
-(global-set-key (kbd "C-M-f") 'locate)
+;; Search for files by name, find files
+;; (global-set-key (kbd "C-M-f") 'locate)
+
+;; Search for a specific string in multiple files
+(global-set-key (kbd "C-M-f") 'find-grep)
 
 ;; Open link in org mode
 (global-set-key (kbd "S-SPC") 'org-open-at-point)
