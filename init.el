@@ -268,7 +268,10 @@ using the specified hippie-expand function."
 ;; (global-visual-line-mode 1)
 
 ;; Ido mode
-(ido-mode 1)
+;; (ido-mode 1)
+
+;; Ivy mode
+(ivy-mode 1)
 
 ;; Search text, search regexp, find text, find regexp
 (global-set-key (kbd "C-f") 'swiper)
