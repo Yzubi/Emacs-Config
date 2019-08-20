@@ -98,6 +98,9 @@
 (global-company-mode)
 (global-set-key (kbd "<C-SPC>") 'company-complete-common)
 
+;; Disable automatic code completion for company-mode
+(setq company-idle-delay nil)
+
 ;; Stop indenting previous line electric indent
 (setq-default electric-indent-inhibit t)
 
