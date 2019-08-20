@@ -58,7 +58,9 @@
 )
 (global-set-key (kbd "C-o") 'dired-at-point-dot)
 
-
+;; Use package Flycheck
+(use-package flycheck
+  :ensure t)
 
 ;; Dired directory first
 ;; (setq dired-listing-switches "-laGh1v --group-directories-first")
@@ -364,7 +366,7 @@ using the specified hippie-expand function."
  '(custom-enabled-themes (quote (wombat)))
  '(package-selected-packages
    (quote
-    (use-package dired-ranger ace-window resize-window dired-subtree))))
+    (swiper flycheck use-package dired-ranger ace-window resize-window dired-subtree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
