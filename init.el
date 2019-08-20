@@ -1,3 +1,9 @@
+;; Guide to install all packages
+;; Step 1 - M-x -> package-install use-package
+;; Step 2 - Reboot emacs
+;; Step 3 - M-x -> package-refresh-contents
+;; Step 4 - M-x -> package-install-selected-packages
+
 ;; Enable Melpa
 (package-initialize)
 
@@ -358,7 +364,7 @@ using the specified hippie-expand function."
  '(custom-enabled-themes (quote (wombat)))
  '(package-selected-packages
    (quote
-    (ack-menu multiple-cursors use-package dired-ranger tabbar centered-cursor-mode avy-zap ace-jump-mode ace-window resize-window dired-subtree))))
+    (use-package dired-ranger ace-window resize-window dired-subtree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
