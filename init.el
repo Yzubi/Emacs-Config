@@ -148,7 +148,7 @@ using the specified hippie-expand function."
 
 ;; Resize windows and move windows (Ace-window)
 (bind-key* "C-e" 'resize-window)
-(bind-key* "M-e" 'ace-swap-window)
+(bind-key* "M-e" 'ace-window)
 (setq aw-dispatch-always 1)
 (setq aw-background nil)
 
