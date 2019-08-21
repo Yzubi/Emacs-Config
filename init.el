@@ -34,7 +34,7 @@
                    '(display-buffer-in-side-window
                     (side . left) (slot . -1))))
                     (turn-window-dedicated))
-(global-set-key (kbd "<f10>") 'ibuffer-light-sidebar)
+(global-set-key (kbd "<C-f2>") 'ibuffer-light-sidebar)
 
 ;; Dired sidebar
 (defun dired-light-sidebar ()
@@ -47,7 +47,7 @@
                    '(display-buffer-in-side-window
                      (side . left) (slot . -2))))
                     (turn-window-dedicated))
-(global-set-key (kbd "<f11>") 'dired-light-sidebar)
+(global-set-key (kbd "<C-f1>") 'dired-light-sidebar)
 
 ;; Open file manager dired
 (defun dired-at-point-dot ()
@@ -109,13 +109,12 @@
 ;; Change indent style - Hackish improved Allman
 (setq c-default-style "bsd")
 (setq-default c-basic-offset 0)
-(c-set-offset 'topmost-intro          '0)
-(c-set-offset 'class-open             '4)
-(c-set-offset 'brace-list-intro       '4)
-(c-set-offset 'arglist-intro          '4)
-(c-set-offset 'statement-block-intro  '4)
-(c-set-offset 'defun-block-intro      '4)
-;; You can find more C offsets using M-x "c-set-offset"
+(c-set-offset 'topmost-intro          '0)  
+(c-set-offset 'class-open             '4)   
+(c-set-offset 'brace-list-intro       '4)   
+(c-set-offset 'arglist-intro          '4)   
+(c-set-offset 'statement-block-intro  '4)   
+(c-set-offset 'defun-block-intro      '4)   
 
 ;; Enable xterm mouse mode
 (xterm-mouse-mode t)
@@ -200,7 +199,7 @@
     (pop-to-buffer buffer
                    '(display-buffer-in-side-window
                      (side . bottom)))))
-(global-set-key (kbd "C-t") 'Toggle-terminal)
+(global-set-key (kbd "C-<f3>") 'Toggle-terminal)
 
 ;; Run latest terminal command
 (defun Run-last-command ()
@@ -278,6 +277,8 @@
 (global-set-key (kbd "C-@") 'company-complete-common)
 (global-set-key (kbd "C-M-@") (kbd "C-M-SPC"))
 (define-key input-decode-map "\^[[1;5P" (kbd "C-<f1>"))
+(define-key input-decode-map "\^[[1;5Q" (kbd "C-<f2>"))
+(define-key input-decode-map "\^[[1;5R" (kbd "C-<f3>"))
 (define-key input-decode-map "\e[1;2A" [S-up])
 (define-key input-decode-map "\e[1;2B" [S-down])
 (define-key input-decode-map "\e[1;3D" [M-left])
