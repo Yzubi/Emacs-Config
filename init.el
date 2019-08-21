@@ -109,12 +109,13 @@
 ;; Change indent style - Hackish improved Allman
 (setq c-default-style "bsd")
 (setq-default c-basic-offset 0)
-(c-set-offset 'topmost-intro          '0)  
-(c-set-offset 'class-open             '4)   
-(c-set-offset 'brace-list-intro       '4)   
-(c-set-offset 'arglist-intro          '4)   
-(c-set-offset 'statement-block-intro  '4)   
-(c-set-offset 'defun-block-intro      '4)   
+(c-set-offset 'topmost-intro          '0)
+(c-set-offset 'class-open             '4)
+(c-set-offset 'brace-list-intro       '4)
+(c-set-offset 'arglist-intro          '4)
+(c-set-offset 'statement-block-intro  '4)
+(c-set-offset 'defun-block-intro      '4)
+;; You can find more C offsets using M-x "c-set-offset"
 
 ;; Enable xterm mouse mode
 (xterm-mouse-mode t)
