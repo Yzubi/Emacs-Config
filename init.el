@@ -109,7 +109,7 @@
 ;; Change indent style - Hackish improved Allman
 (setq c-default-style "bsd")
 (setq-default c-basic-offset 0)
-;(c-set-offset 'topmost-intro         '8)
+(c-set-offset 'topmost-intro         '8)
 (c-set-offset 'brace-list-intro      '8)
 (c-set-offset 'arglist-intro         '8)
 (c-set-offset 'statement-block-intro '8)
