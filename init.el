@@ -101,7 +101,7 @@
 (setq company-idle-delay nil)
 
 ;; Electric indent
-(electric-indent-mode 1)
+;; (electric-indent-mode t)
 ;; Stop indenting previous line electric indent
 (setq-default electric-indent-inhibit t)
 ;; Use spaces instead of tabs for indentation
