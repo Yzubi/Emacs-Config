@@ -103,6 +103,11 @@
 ))
 
 (global-set-key (kbd "<C-SPC>") 'auto-complete)
+;; Disable realtime auto-completion listing 
+(setq ac-auto-start nil)
+
+;; Enable auto-complete only for these modes
+;; (setq ac-modes '(c++-mode c-mode sql-mode ini-mode))
 
 ;; Electric indent
 ;; (electric-indent-mode t)
