@@ -92,13 +92,6 @@
 (global-whitespace-mode)
 (setq whitespace-style '(trailing tabs newline tab-mark))
 
-;; Use spaces instead of tabs for indentation
-(setq-default indent-tabs-mode nil)
-
-;; Change indentation style
-(setq c-default-style "bsd"
-  c-basic-offset 4)
-
 ;; Auto complete
 (setq company-dabbrev-downcase nil)
 (global-company-mode)
@@ -107,11 +100,12 @@
 ;; Disable automatic code completion for company-mode
 (setq company-idle-delay nil)
 
-
 ;; Electric indent
 (electric-indent-mode 1)
 ;; Stop indenting previous line electric indent
 (setq-default electric-indent-inhibit t)
+;; Use spaces instead of tabs for indentation
+(setq-default indent-tabs-mode nil)
 
 ;; Enable xterm mouse mode
 (xterm-mouse-mode t)
