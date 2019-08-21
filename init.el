@@ -107,6 +107,9 @@
 ;; Disable automatic code completion for company-mode
 (setq company-idle-delay nil)
 
+
+;; Electric indent
+(electric-indent-mode 1)
 ;; Stop indenting previous line electric indent
 (setq-default electric-indent-inhibit t)
 
