@@ -93,12 +93,15 @@
 (setq whitespace-style '(trailing tabs newline tab-mark))
 
 ;; Auto complete
-(setq company-dabbrev-downcase nil)
-(global-company-mode)
-(global-set-key (kbd "<C-SPC>") 'company-complete-common)
+(use-package auto-complete
+:ensure t
+:init
+(progn
+(ac-config-default)
+(global-auto-complete-mode t)
+))
 
-;; Disable automatic code completion for company-mode
-(setq company-idle-delay nil)
+(global-set-key (kbd "<C-SPC>") 'auto-complete)
 
 ;; Electric indent
 ;; (electric-indent-mode t)
@@ -279,7 +282,7 @@
 ;; St Terminal compatibility Search, selection and CUA using shift, etc...
 ;; (keyboard-translate ?\C-h ?\C-?)
 (define-key isearch-mode-map (kbd "<RET>") 'isearch-repeat-forward)
-(global-set-key (kbd "C-@") 'company-complete-common)
+(global-set-key (kbd "C-@") 'auto-complete)
 (global-set-key (kbd "C-M-@") (kbd "C-M-SPC"))
 (define-key input-decode-map "\^[[1;5P" (kbd "C-<f1>"))
 (define-key input-decode-map "\^[[1;5Q" (kbd "C-<f2>"))
@@ -359,7 +362,7 @@
  '(custom-enabled-themes (quote (wombat)))
  '(package-selected-packages
    (quote
-    (swiper flycheck use-package dired-ranger ace-window resize-window dired-subtree))))
+    (auto-complete swiper flycheck use-package dired-ranger ace-window resize-window dired-subtree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
