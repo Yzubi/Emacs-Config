@@ -106,6 +106,8 @@
 (setq-default electric-indent-inhibit t)
 ;; Use spaces instead of tabs for indentation
 (setq-default indent-tabs-mode nil)
+;; Change indent style
+(setq c-default-style "bsd")
 
 ;; Enable xterm mouse mode
 (xterm-mouse-mode t)
