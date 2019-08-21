@@ -1,8 +1,9 @@
 ;; Guide to install all packages
 ;; Step 1 - M-x -> package-install use-package
-;; Step 2 - Reboot emacs
-;; Step 3 - M-x -> package-refresh-contents
-;; Step 4 - M-x -> package-install-selected-packages
+;; Step 2 - M-x -> package-install swiper
+;; Step 3 - Reboot emacs
+;; Step 4 - M-x -> package-refresh-contents
+;; Step 5 - M-x -> package-install-selected-packages
 
 ;; Enable Melpa
 (package-initialize)
