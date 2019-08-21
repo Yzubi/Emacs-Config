@@ -106,8 +106,10 @@
 (setq-default electric-indent-inhibit t)
 ;; Use spaces instead of tabs for indentation
 (setq-default indent-tabs-mode nil)
-;; Change indent style
-;;(setq c-default-style "bsd")
+;; Change indent style - Hackish improved Allman
+(setq c-default-style "whitesmith")
+(setq-default c-basic-offset 0)
+(c-set-offset 'brace-list-intro '8)
 
 ;; Enable xterm mouse mode
 (xterm-mouse-mode t)
