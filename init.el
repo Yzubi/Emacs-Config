@@ -107,11 +107,11 @@
 ;; Use spaces instead of tabs for indentation
 (setq-default indent-tabs-mode nil)
 ;; Change indent style - Hackish improved Allman
-(setq c-default-style "whitesmith")
+(setq c-default-style "bsd")
 (setq-default c-basic-offset 0)
+;(c-set-offset 'topmost-intro         '8)
 (c-set-offset 'brace-list-intro      '8)
 (c-set-offset 'arglist-intro         '8)
-(c-set-offset 'topmost-intro         '8)
 (c-set-offset 'statement-block-intro '8)
 (c-set-offset 'defun-block-intro     '8)
 
