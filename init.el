@@ -92,8 +92,12 @@
 (global-whitespace-mode)
 (setq whitespace-style '(trailing tabs newline tab-mark))
 
-;; Use spaces instead of tabs for identation
+;; Use spaces instead of tabs for indentation
 (setq-default indent-tabs-mode nil)
+
+;; Change indentation style
+(setq c-default-style "bsd"
+  c-basic-offset 4)
 
 ;; Auto complete
 (setq company-dabbrev-downcase nil)
