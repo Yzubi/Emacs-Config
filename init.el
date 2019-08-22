@@ -402,4 +402,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(region ((t (:background "navy" :foreground "#f6f3e8")))))
+ '(region ((t (:background "navy" :foreground "#f6f3e8"))))
+
+ '(company-tooltip ((t (:background "#003300" :foreground "#ffffff"))))
+ '(company-tooltip-annotation ((t (:foreground "#ffffff"))))
+ '(company-tooltip-selection ((t (:background "#000066"))))
+ '(company-scrollbar-bg ((t (:background "#686868" :inherit company-tooltip))))
+ '(company-scrollbar-fg ((t (:background "#808080"))))
+ '(company-echo ((t nil)))
+'(company-tooltip-common ((t (:inherit nil :foreground "#ffffff")))))
