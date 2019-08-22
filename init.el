@@ -315,7 +315,7 @@
 
 ;; St Terminal compatibility Search, selection and CUA using shift, etc...
 ;; (keyboard-translate ?\C-h ?\C-?)
-(global-set-key (kbd "C-@") 'auto-complete)
+(global-set-key (kbd "C-@") 'company-complete-common)
 (global-set-key (kbd "C-M-@") (kbd "C-M-SPC"))
 (define-key input-decode-map "\^[[1;5P" (kbd "C-<f1>"))
 (define-key input-decode-map "\^[[1;5Q" (kbd "C-<f2>"))
