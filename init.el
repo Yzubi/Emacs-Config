@@ -100,6 +100,7 @@
   (setq company-idle-delay nil)
   (setq company-dabbrev-downcase nil)
   (setq company-minimum-prefix-length 3)
+  (global-company-mode t)
   )
 
 (global-set-key (kbd "<C-SPC>") 'company-complete-common)
