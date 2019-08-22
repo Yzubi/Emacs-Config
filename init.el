@@ -62,6 +62,7 @@
 ;; Use package Flycheck
 (use-package flycheck
   :ensure t)
+(add-hook 'c-mode-hook 'flycheck-mode)
 
 ;; Dired directory first
 ;; (setq dired-listing-switches "-laGh1v --group-directories-first")
@@ -105,12 +106,12 @@
 
 (global-set-key (kbd "<C-SPC>") 'company-complete-common)
 
-(use-package flycheck-clang-analyzer
-  :ensure t
-  :config
-  (with-eval-after-load 'flycheck
-    (require 'flycheck-clang-analyzer)
-     (flycheck-clang-analyzer-setup)))
+;;(use-package flycheck-clang-analyzer
+;;  :ensure t
+;;  :config
+;;  (with-eval-after-load 'flycheck
+;;    (require 'flycheck-clang-analyzer)
+;;     (flycheck-clang-analyzer-setup)))
 
 (with-eval-after-load 'company
   (add-hook 'c++-mode-hook 'company-mode)
