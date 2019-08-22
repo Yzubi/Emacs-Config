@@ -405,10 +405,10 @@
  ;; If there is more than one, they won't work right.
  '(region ((t (:background "navy" :foreground "#f6f3e8"))))
 
- '(company-tooltip ((t (:background "#003300" :foreground "#ffffff"))))
- '(company-tooltip-annotation ((t (:foreground "#ffffff"))))
- '(company-tooltip-selection ((t (:background "#000066"))))
+ '(company-tooltip ((t (:background "#eeeeee" :foreground "#252525"))))
+ '(company-tooltip-annotation ((t (:foreground "#252525"))))
+ '(company-tooltip-selection ((t (:background "#0066ff"))))
  '(company-scrollbar-bg ((t (:background "#686868" :inherit company-tooltip))))
  '(company-scrollbar-fg ((t (:background "#808080"))))
  '(company-echo ((t nil)))
-'(company-tooltip-common ((t (:inherit nil :foreground "#ffffff")))))
+'(company-tooltip-common ((t (:inherit nil :foreground "#252525")))))
