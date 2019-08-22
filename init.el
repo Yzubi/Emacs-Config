@@ -99,7 +99,7 @@
   :config
   (setq company-idle-delay nil)
   (setq company-dabbrev-downcase nil)
-  (setq company-minimum-prefix-length 3)
+  (setq company-minimum-prefix-length 1)
   (global-company-mode t)
   )
 
