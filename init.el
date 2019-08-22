@@ -93,21 +93,44 @@
 (global-whitespace-mode)
 (setq whitespace-style '(trailing tabs newline tab-mark))
 
-;; Auto complete
-(use-package auto-complete
-:ensure t
-:init
-(progn
-(ac-config-default)
-(global-auto-complete-mode t)
-))
+;; Auto complete with company mode
+(use-package company
+  :ensure t
+  :config
+  (setq company-idle-delay nil)
+  (setq company-dabbrev-downcase nil)
+  (setq company-minimum-prefix-length 3)
+  )
 
-(global-set-key (kbd "<C-SPC>") 'auto-complete)
-;; Disable realtime auto-completion listing 
-(setq ac-auto-start nil)
+(global-set-key (kbd "<C-SPC>") 'company-complete-common)
 
-;; Enable auto-complete only for these modes
-;; (setq ac-modes '(c++-mode c-mode sql-mode ini-mode))
+(use-package flycheck-clang-analyzer
+  :ensure t
+  :config
+  (with-eval-after-load 'flycheck
+    (require 'flycheck-clang-analyzer)
+     (flycheck-clang-analyzer-setup)))
+
+(with-eval-after-load 'company
+  (add-hook 'c++-mode-hook 'company-mode)
+  (add-hook 'c-mode-hook 'company-mode))
+
+(use-package company-c-headers
+  :ensure t)
+
+(use-package company-irony
+  :ensure t
+  :config
+  (setq company-backends '((company-c-headers
+                            company-dabbrev-code
+                            company-irony))))
+
+(use-package irony
+  :ensure t
+  :config
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 
 ;; Electric indent
 ;; (electric-indent-mode t)
@@ -187,8 +210,8 @@
 ;; Disable window dialogs 
 (setq use-dialog-box nil)
 
-;; Y or N exit
-(fset 'yes-or-no-p 'y-or-n-p)
+;; Change yes-or-no questions into y-or-n questions
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Run Emacs server
 (load "server")
@@ -292,7 +315,6 @@
 
 ;; St Terminal compatibility Search, selection and CUA using shift, etc...
 ;; (keyboard-translate ?\C-h ?\C-?)
-(define-key isearch-mode-map (kbd "<RET>") 'isearch-repeat-forward)
 (global-set-key (kbd "C-@") 'auto-complete)
 (global-set-key (kbd "C-M-@") (kbd "C-M-SPC"))
 (define-key input-decode-map "\^[[1;5P" (kbd "C-<f1>"))
@@ -373,7 +395,7 @@
  '(custom-enabled-themes (quote (wombat)))
  '(package-selected-packages
    (quote
-    (auto-complete swiper flycheck use-package dired-ranger ace-window resize-window dired-subtree))))
+    (swiper flycheck use-package dired-ranger ace-window resize-window dired-subtree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
