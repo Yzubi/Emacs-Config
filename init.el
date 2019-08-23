@@ -61,8 +61,10 @@
 
 ;; Use package Flycheck
 (use-package flycheck
-  :ensure t)
-(add-hook 'c-mode-hook 'flycheck-mode)
+  :ensure t
+  :config
+  (add-hook 'c-mode-hook 'flycheck-mode)
+  (global-flycheck-mode t)) 
 
 ;; Dired directory first
 ;; (setq dired-listing-switches "-laGh1v --group-directories-first")
@@ -245,6 +247,9 @@
                      (side . bottom)))))
 (global-set-key (kbd "C-<f3>") 'Toggle-terminal)
 
+;; List Flycheck errors
+(global-set-key (kbd "C-<f4>") 'flycheck-list-errors)
+
 ;; Run latest terminal command
 (defun Run-last-command ()
   (interactive)
@@ -322,6 +327,7 @@
 (define-key input-decode-map "\^[[1;5P" (kbd "C-<f1>"))
 (define-key input-decode-map "\^[[1;5Q" (kbd "C-<f2>"))
 (define-key input-decode-map "\^[[1;5R" (kbd "C-<f3>"))
+(define-key input-decode-map "\^[[1;5S" (kbd "C-<f4>"))
 (define-key input-decode-map "\e[1;2A" [S-up])
 (define-key input-decode-map "\e[1;2B" [S-down])
 (define-key input-decode-map "\e[1;3D" [M-left])
