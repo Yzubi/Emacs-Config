@@ -64,6 +64,9 @@
   :ensure t
   :config
   (add-hook 'c-mode-hook 'flycheck-mode)
+
+  ;; Display error popup only if error list isn't open
+  (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)
   (global-flycheck-mode t)) 
 
 ;; Dired directory first
