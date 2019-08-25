@@ -157,12 +157,13 @@
 (c-set-offset 'block-close            '0)
 (c-set-offset 'substatement-open      '0)
 (c-set-offset 'func-decl-cont         '0)
+(c-set-offset 'statement-case-open    '0)
 (setq-default tab-width                4)
 (setq-default c-basic-offset           4)
-(c-set-offset 'statement-case-open    '4)
 (c-set-offset 'brace-list-intro       '4)
 (c-set-offset 'statement-block-intro  '4)
 (c-set-offset 'defun-block-intro      '4)
+(c-set-offset 'case-label             '4)
 ;; You can find more C offsets using M-x "c-set-offset"
 
 ;; Enable xterm mouse mode
